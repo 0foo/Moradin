@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="preload" href="/data/classes/all_classes.min.json" as="fetch" crossorigin="anonymous">
+    <title>Character Selection</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #root-container {
+            margin:auto;
+            display:flex;
+        }
+        #characterSelect {
+            height: 250px;
+            width: 300px;
+            border:solid 2px black;
+            border-radius: 10px;
+        }
+        #buttons {
+            margin-top: 10px;
+        }
+        #button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Optional: adds space between buttons */
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root-container">
+        <select id="characterSelect" class="form-select form-select-lg" multiple></select>
+        <div id="button-container">
+            <button id="viewCharacterBtn" class="btn btn-primary btn-lg">View Character</button>
+            <button id="editCharacterBtn" class="btn btn-warning btn-lg">Edit Character</button>
+            <button id="addCharacterBtn" class="btn btn-success btn-lg">New Character</button>
+            <button id="deleteCharacterBtn" class="btn btn-danger btn-lg">Delete Characters</button>
+        </div>
+    </div>
+    <script type="module" src="/js/util/util-compiled.js"></script>
+    <script type="module" src="/js/app/MoradinStorageManager.js"></script>
+    <script type="module" src="/js/site/index.js"></script>
+</body>
+</html>

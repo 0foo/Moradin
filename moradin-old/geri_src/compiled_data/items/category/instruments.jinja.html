@@ -1,0 +1,40 @@
+---
+processor: [
+    jinja_parser, 
+    remove_blank_lines
+]
+jinja_parser:
+    json_project_path: /geri_src/5e_tools_data/items/items.json
+    start_key: item
+    custom_filter_files: ".geraldine/custom_filters/custom_jinja_filters.py"
+---
+
+<!DOCTYPE html>
+<html>
+        <head>
+        <title>{{ name }}</title>
+        <link href="/css/simple-table.css" rel="stylesheet"/>
+        </head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+                {% if item.rarity == 'none' %}
+                    {% if item.type == "INS" %}
+                    <tr>
+                        <td>{{ item.name  | format_as_item_href }}</td>
+                        <td>{{ item.type }}</td>                        
+                    </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
