@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
-    <title>Data Builder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/site.css">
+    <title>Character Selection</title>
     <style>
-        .data-container {
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #root-container {
+            margin:auto;
+            display:flex;
+        }
+
+        #characterSelect {
+            height: 250px;
+            width: 300px;
+            border:solid 2px black;
+            border-radius: 10px;
+        }
+
+        #buttons {
+            margin-top: 10px;
+        }
+
+        #button-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            padding: 20px;
+            gap: 10px; /* Optional: adds space between buttons */
+            margin-left: 10px;
         }
-        .data-section {
-            background: #f5f5f5;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        pre {
-            font-family: monospace;
-            white-space: pre-wrap;
-            margin: 0;
-            overflow: auto;
-            max-height: 80vh;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 20px;
-            cursor: pointer;
-        }
-        h2 {
-            margin-top: 0;
-            color: #333;
-        }
+
     </style>
 </head>
 <body>
-    <div class="data-container">
-        <div class="data-section">
-            <h2>Original Data Structure</h2>
-            <pre id="originalData"></pre>
+
+    <div id="root-container">
+        <select id="characterSelect" class="form-select form-select-lg" multiple></select>
+
+
+        <div id="button-container">
+            <button id="viewCharacterBtn" class="btn btn-primary btn-lg">View Character</button>
+            <button id="editCharacterBtn" class="btn btn-warning btn-lg">Edit Character</button>
+            <button id="addCharacterBtn" class="btn btn-success btn-lg">New Character</button>
+            <button id="deleteCharacterBtn" class="btn btn-danger btn-lg">Delete Characters</button>
         </div>
-        
-        <button id="buildButton">Build Data</button>
-        
-        <div class="data-section">
-            <h2>Built Data Structure</h2>
-            <pre id="builtData"></pre>
-        </div>
+
     </div>
-    <script src="main.js" type="module"></script>
+
+    <script type="module" src="/js/site/index.js"></script>
+
+    
 </body>
-</html> 
+</html>
